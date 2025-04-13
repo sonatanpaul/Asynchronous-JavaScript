@@ -1,48 +1,25 @@
-// // callback
+{
+  function myFirst() {
+    console.log("My Fuction");
+  }
 
-// const takeOrder = (name, callback) => {
-//   console.log(`Take order for ${name} `);
-//   callback(name);
-// };
+  function mySecond() {
+    console.log("My Second");
+  }
 
-// const processOrder = (name) => {
-//   console.log(`Processing oder for ${name}`);
+  myFirst();
+  mySecond();
+}
 
-//   setTimeout(() => {
-//     console.log(`cooking completed`);
-//     console.log(`order processed for ${name}`);
-//     completeOrder(name);
-//   }, 3000);
-// };
+{
+  function myFirst() {
+    console.log("My Fisrt");
+  }
 
-// const completeOrder = (name) => {
-//   console.log(`completed order for ${name} `);
-// };
+  function mySecond() {
+    console.log("My Second");
+  }
 
-// takeOrder("Sonatan", (name) => {
-//   processOrder(name, () => {
-//     completeOrder(name);
-//   });
-// });
-
-const takeOrder = (callback) => {
-  console.log("take order");
-  callback();
-};
-
-const processOrder = (callback) => {
-  console.log("Process order");
-  callback();
-};
-
-const completeOrder = () => {
-  console.log("Complete Order");
-};
-
-takeOrder(function () {
-  processOrder(function () {
-    completeOrder();
-  });
-});
-// processOrder();
-// completeOrder();
+  mySecond();
+  myFirst();
+}
