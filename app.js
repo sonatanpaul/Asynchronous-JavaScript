@@ -202,52 +202,113 @@
 // console.log("Task 3");
 
 // =================================
-const payment = true;
-const marks = 60;
+// const payment = true;
+// const marks = 60;
+
+// function enroll() {
+//   console.log("Course Enrollment Progress");
+
+//   const promise = new Promise(function (resolve, reject) {
+//     setTimeout(function () {
+//       if (payment) {
+//         resolve();
+//       } else {
+//         reject("Payment Faild");
+//       }
+//     }, 2000);
+//   });
+//   return promise;
+// }
+
+// function progress() {
+//   console.log("Course Progress on Going");
+
+//   const promise = new Promise(function (resolve, reject) {
+//     setTimeout(function () {
+//       if (marks >= 80) {
+//         resolve();
+//       } else {
+//         reject("You Could not get Enough Marks");
+//       }
+//     }, 3000);
+//   });
+//   return promise;
+// }
+
+// function getCertificate() {
+//   console.log("Your Certificate Preparing ...");
+
+//   const promise = new Promise(function (resolve) {
+//     setTimeout(function () {
+//       resolve("Congrats , You Got Certificate");
+//     }, 2000);
+//   });
+
+//   return promise;
+// }
+// enroll()
+//   .then(progress)
+//   .then(getCertificate)
+//   .then((value) => console.log(value))
+//   .catch((error) => console.log(error));
+
+// //   var keyword
+// // you can redeclare and re-assign
+// var number; // variable declare but not assign
+// console.log(number); //  undifined
+// number = 20; //  number variabel assign
+// console.log(number); // 20
+
+// // let keyword
+
+// async await
+
+const peymentSuccess = true;
+const marks = 90;
 
 function enroll() {
-  console.log("Course Enrollment Progress");
-
+  console.log("Course enroll on progress ...");
   const promise = new Promise(function (resolve, reject) {
     setTimeout(function () {
-      if (payment) {
+      if (peymentSuccess) {
         resolve();
       } else {
-        reject("Payment Faild");
+        reject("You Peyment Faild");
       }
-    }, 2000);
+    }, 5000);
   });
   return promise;
 }
 
 function progress() {
   console.log("Course Progress on Going");
-
-  const promise = new Promise(function (resolve, reject) {
+  const promise = new Promise(function (resolve, rejcet) {
     setTimeout(function () {
       if (marks >= 80) {
         resolve();
       } else {
-        reject("You Could not get Enough Marks");
+        rejcet("You Could Not Enough Marks");
       }
-    }, 3000);
+    }, 2000);
   });
   return promise;
 }
 
 function getCertificate() {
-  console.log("Your Certificate Preparing ...");
-
   const promise = new Promise(function (resolve) {
-    setTimeout(function () {
-      resolve("Congrats , You Got Certificate");
-    }, 2000);
+    console.log("Your Course Preparing");
+    setTimeout(() => {
+      resolve("Congrats, You Got Cetificate");
+    }, 3000);
   });
-
   return promise;
 }
-enroll()
-  .then(progress)
-  .then(getCertificate)
-  .then((value) => console.log(value))
-  .catch((error) => console.log(error));
+
+async function course() {
+  await enroll();
+  await progress();
+  const result = await getCertificate();
+  console.log(result);
+}
+
+course();
